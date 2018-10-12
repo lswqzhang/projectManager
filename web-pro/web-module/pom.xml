@@ -77,6 +77,11 @@
             <artifactId>web-biz</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
         <!-- 防止json提示下载 -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
