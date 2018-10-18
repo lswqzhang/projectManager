@@ -21,5 +21,6 @@
     </distributionManagement>
   <modules>
     <module>thread-wang</module>
+    <module>thread-lswq</module>
   </modules>
 </project>
