@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
  *
  * @author zhangshaowei
  */
-public class RunnableTest<E> implements Runnable {
+public class RunnableTest implements Runnable {
 
     private final Lock lock = new ReentrantLock();
 
