@@ -1,5 +1,8 @@
 package com.lswq.consistenthash;
 
+/**
+ * http://afghl.github.io/2016/11/19/implement-consistent-hashing.html
+ */
 public class Main {
     public static void main(String[] args) {
         Cluster c = createCluster();
