@@ -15,6 +15,7 @@ import java.util.TreeMap;
  * Method routeNode will return a Node instance which the object key should be allocated to according to consistent hash algorithm
  */
 public class ConsistentHashRouter<T extends Node> {
+    // consistent hash stored
     private final SortedMap<Long, VirtualNode<T>> ring = new TreeMap<>();
     private final HashFunction hashFunction;
 
