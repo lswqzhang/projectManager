@@ -4,6 +4,7 @@ package com.lswq.consistenthash;
  * http://afghl.github.io/2016/11/19/implement-consistent-hashing.html
  */
 public class Main {
+
     public static void main(String[] args) {
         Cluster c = createCluster();
 
@@ -20,8 +21,10 @@ public class Main {
                 new Entry("PPAP")
         };
 
+        for (Entry e : entries)
+            c.put(e);
 
-        c.addServer(new Server("192.168.0.6"));
+        c.addServer(new Server("achuguniadsfaang"));
 
         findEntries(c, entries);
 
@@ -29,16 +32,23 @@ public class Main {
 
     private static Cluster createCluster() {
         Cluster c = new Cluster();
-        c.addServer(new Server("192.168.0.0"));
-        c.addServer(new Server("192.168.0.1"));
-        c.addServer(new Server("192.168.0.2"));
-        c.addServer(new Server("192.168.0.3"));
-        c.addServer(new Server("192.168.0.4"));
-        c.addServer(new Server("192.168.0.5"));
+        c.addServer(new Server("international"));
+        c.addServer(new Server("china"));
+        c.addServer(new Server("japanjapan"));
+        c.addServer(new Server("Amarica"));
+        c.addServer(new Server("samsungtsisger"));
+        c.addServer(new Server("achuguniang"));
         return c;
     }
 
     private static void findEntries(Cluster c, Entry[] entries) {
-
+        for (Entry e : entries) {
+            if (e == c.get(e)) {
+                System.out.println("重新找到了entry: " + e);
+            } else {
+                System.out.println("entry已失效: " + e);
+            }
+        }
     }
+
 }

@@ -9,19 +9,15 @@ public class Cluster {
     private SortedMap<Integer, Server> servers = new TreeMap<Integer, Server>();
     private int size = 0;
 
-    public boolean addServer(Server s) {
-        if (size >= SERVER_SIZE_MAX)
-            return false;
-
-        servers.put(s.hashCode(), s);
-
-        size++;
-        return true;
+    public void put(Entry e) {
+        routeServer(e.hashCode()).put(e);
     }
 
+    public Entry get(Entry e) {
+        return routeServer(e.hashCode()).get(e);
+    }
 
-
-    public Server routeServer(int hash) {
+    private Server routeServer(int hash) {
         if (servers.isEmpty())
             return null;
 
@@ -30,5 +26,15 @@ public class Cluster {
             hash = tailMap.isEmpty() ? servers.firstKey() : tailMap.firstKey();
         }
         return servers.get(hash);
+    }
+
+    public boolean addServer(Server s) {
+        if (size >= SERVER_SIZE_MAX)
+            return false;
+
+        servers.put(s.hashCode(), s);
+
+        size++;
+        return true;
     }
 }
