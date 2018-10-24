@@ -12,6 +12,7 @@
         <module>web-pro</module>
     <module>nio</module>
     <module>threadlearn</module>
+    <module>common-tech</module>
   </modules>
 
     <properties>
