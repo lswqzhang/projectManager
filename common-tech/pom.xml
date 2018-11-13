@@ -21,5 +21,6 @@
     </dependencies>
   <modules>
     <module>consistent-hash</module>
+    <module>zookeeper-learn</module>
   </modules>
 </project>
