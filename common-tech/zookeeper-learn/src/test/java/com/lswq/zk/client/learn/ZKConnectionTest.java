@@ -5,6 +5,10 @@ import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.Stat;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 public class ZKConnectionTest {
 
     private static final byte[] data = new byte[0];
@@ -42,4 +46,34 @@ public class ZKConnectionTest {
 
         }
     }
-}
+
+
+    @Test
+    public void hashDelete() {
+        Map<String, String> testOne = new HashMap<>();
+        testOne.put("a", "a");
+        testOne.put("b", "b");
+        testOne.put("c", "c");
+        testOne.put("d", "d");
+        Iterator<Map.Entry<String, String>> entry = testOne.entrySet().iterator();
+        while (entry.hasNext()) {
+            Map.Entry<String, String> next = entry.next();
+            System.err.println(next.getKey());
+            entry.remove();
+        }
+
+        Map<String, String> testTwo = new HashMap<>();
+        testTwo.put("a", "a");
+        testTwo.put("b", "b");
+        testTwo.put("c", "c");
+        testTwo.put("d", "d");
+
+        Iterator<String> key = testTwo.keySet().iterator();
+        // ConcurrentModificationException
+        while (key.hasNext()) {
+            String next = key.next();
+            System.err.println(next);
+            testTwo.remove(next);
+        }
+    }
+ }
