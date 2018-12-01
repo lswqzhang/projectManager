@@ -29,6 +29,7 @@
         <log4j2.version>2.11.1</log4j2.version>
         <jetty.version>9.4.12.RC2</jetty.version>
         <zookeeper-version>3.4.13</zookeeper-version>
+        <jedis-version>2.9.0</jedis-version>
     </properties>
 
     <dependencyManagement>
@@ -349,6 +350,13 @@
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
                 <version>${zookeeper-version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis-version}</version>
             </dependency>
 
 

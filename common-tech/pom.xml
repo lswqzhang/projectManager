@@ -22,5 +22,6 @@
   <modules>
     <module>consistent-hash</module>
     <module>zookeeper-learn</module>
+    <module>jedis-learn</module>
   </modules>
 </project>
