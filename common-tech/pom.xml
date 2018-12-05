@@ -23,5 +23,6 @@
     <module>consistent-hash</module>
     <module>zookeeper-learn</module>
     <module>jedis-learn</module>
+    <module>kafka-learn</module>
   </modules>
 </project>
