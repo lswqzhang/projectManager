@@ -30,6 +30,7 @@ public class ZKConnection {
     }
 
     private class ConnWatcher implements Watcher {
+        @Override
         public void process(WatchedEvent event) {
             // 连接建立, 回调process接口时, 其event.getState()为KeeperState.SyncConnected
             if (event.getState() == Event.KeeperState.SyncConnected) {

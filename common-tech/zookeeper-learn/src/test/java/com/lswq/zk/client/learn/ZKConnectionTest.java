@@ -37,6 +37,8 @@ public class ZKConnectionTest {
             String myZnode = connection.create(root + "/" + lockName + SPLITSTR, CreateMode.EPHEMERAL_SEQUENTIAL);
 
             System.err.println(myZnode);
+            
+            Thread.currentThread().join();
 
         } catch (Exception e) {
             e.printStackTrace();

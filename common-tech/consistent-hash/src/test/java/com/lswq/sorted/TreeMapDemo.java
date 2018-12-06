@@ -11,18 +11,18 @@ public class TreeMapDemo {
     @Test
     public void treeMapTest() {
         // creating maps
-        TreeMap<Integer, String> treemap = new TreeMap<Integer, String>();
+        SortedMap<Integer, String> treeMap = new TreeMap<>();
 
 
         // populating tree map
-        treemap.put(-1, "two");
-        treemap.put(1, "one");
-        treemap.put(7, "three");
-        treemap.put(6, "six");
-        treemap.put(5, "five");
+        treeMap.put(-1, "two");
+        treeMap.put(1, "one");
+        treeMap.put(7, "three");
+        treeMap.put(6, "six");
+        treeMap.put(5, "five");
 
         System.out.println("Getting tail map");
-        SortedMap<Integer, String> treemapincl = treemap.tailMap(3);
+        SortedMap<Integer, String> treemapincl = treeMap.tailMap(3);
         System.out.println("Tail map values: " + treemapincl);
     }
 
