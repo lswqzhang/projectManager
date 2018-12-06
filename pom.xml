@@ -13,6 +13,7 @@
     <module>nio</module>
     <module>threadlearn</module>
     <module>common-tech</module>
+    <module>data-structure</module>
   </modules>
 
     <properties>
