@@ -28,6 +28,25 @@ public class AppTest extends TestCase {
      * Rigourous Test :-)
      */
     public void testApp() {
+
+
+        Integer a = 64;
+
+        Integer integer = Integer.valueOf("00100000", 2);
+        System.err.println(integer);
+
+        System.err.println(Integer.toBinaryString(a));
+
+        if ((a & integer) == integer) {
+            System.err.println("偶数");
+        }
+
+
+
+
+
+
+
         Tries tree = new Tries();
         String[] strs = {
                 "banana",
