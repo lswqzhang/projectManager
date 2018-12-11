@@ -43,8 +43,23 @@ public class AppTest extends TestCase {
 
 
 
+        int x1 = 3, x2 = 4;
+
+        x1 = x1 ^ x2;
+        x2 = x1 ^ x2;
+        x1 = x1 ^ x2;
+
+        System.err.println("x1 = " + x1 + ", x2 = " + x2);
 
 
+        int x1_ = ~x1 + 1;
+
+        System.err.println("x1的负数为： " + x1_);
+
+        int x3 = -10;
+
+        int x3_ = ~x3 + 1;
+        System.err.println("x3的负数为： " + x3_);
 
 
         Tries tree = new Tries();
