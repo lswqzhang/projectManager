@@ -21,7 +21,7 @@ import java.util.concurrent.ExecutionException;
 public class AppTest extends TestCase {
 
     private static final Logger logger = LoggerFactory.getLogger(AppTest.class);
-    private static final String TOPIC = "lswq_test_topic";
+    private static final String TOPIC = "lswq-test-topic";
 
     /**
      * Create the test case
