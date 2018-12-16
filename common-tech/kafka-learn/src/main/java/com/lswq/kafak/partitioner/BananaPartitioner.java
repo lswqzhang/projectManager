@@ -9,6 +9,8 @@ import java.util.Map;
 
 /**
  * 自定义分区策略
+ * 
+ * @author zhangsw 
  */
 public class BananaPartitioner implements Partitioner {
     
