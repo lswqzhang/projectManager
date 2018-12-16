@@ -52,6 +52,7 @@ public class AppTest extends TestCase {
 
 
 
+        
         int x1 = 3, x2 = 4;
 
         x1 = x1 ^ x2;
@@ -60,6 +61,10 @@ public class AppTest extends TestCase {
 
         System.err.println("x1 = " + x1 + ", x2 = " + x2);
 
+        int x = 0x7fffffff;
+        System.err.println("test   " + Integer.toBinaryString(x));
+        System.err.println("int test " + x + ",the int max is " + Integer.MAX_VALUE);
+        
 
         int x1_ = ~x1 + 1;
 
@@ -71,6 +76,10 @@ public class AppTest extends TestCase {
         System.err.println("x3的负数为： " + x3_);
 
 
+        // 年、月、日、时、分、秒
+        int[][][][][][] time = new int[100][12][31][24][60][60];
+        
+        
         Tries tree = new Tries();
         String[] strs = {
                 "banana",
