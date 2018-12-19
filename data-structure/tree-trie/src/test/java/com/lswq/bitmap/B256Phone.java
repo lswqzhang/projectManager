@@ -21,6 +21,14 @@ public class B256Phone {
             masks[i] = mask;
             mask = mask >>> 1;
         }
+        for (int i = 0; i < masks.length; i++) {
+            StringBuilder builder = new StringBuilder();
+            for (int j = 0; j < i; j++) {
+                builder.append(" ");
+            }
+            builder.append(Long.toBinaryString(masks[i]));
+            System.err.println(builder.toString());
+        }
     }
 
     public static int search() {
@@ -46,6 +54,8 @@ public class B256Phone {
 
     public static void main(String[] args) {
         bitMap[0] = 0xFFFFFFFFEFFFFFFFL; //测试数据, 第35个bit设置为0
+        System.err.println(Long.toBinaryString(bitMap[0]));
+        System.err.println(bitMap[0]);
         int pos = search();
         System.out.println(pos);
     }

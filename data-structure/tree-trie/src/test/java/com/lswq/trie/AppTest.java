@@ -46,6 +46,9 @@ public class AppTest extends TestCase {
 
         System.err.println(Integer.toBinaryString(a));
 
+
+        System.err.println("long is " + Long.toBinaryString(0xFFFFFFFFEFFFFFFFL));
+
         if ((a & integer) == integer) {
             System.err.println("偶数");
         }
