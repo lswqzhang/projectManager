@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lswq</groupId>
@@ -10,11 +11,12 @@
 
     <modules>
         <module>web-pro</module>
-    <module>nio</module>
-    <module>threadlearn</module>
-    <module>common-tech</module>
-    <module>data-structure</module>
-  </modules>
+        <module>nio</module>
+        <module>threadlearn</module>
+        <module>common-tech</module>
+        <module>data-structure</module>
+        <module>spring-boot</module>
+    </modules>
 
     <properties>
         <org.springframework.version>4.3.10.RELEASE</org.springframework.version>
@@ -133,7 +135,7 @@
             <dependency>
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjrt</artifactId>
-                <version>1.8.10</version>
+                <version>1.8.4</version>
             </dependency>
 
             <dependency>
@@ -143,7 +145,7 @@
             </dependency>
             <!-- spring aop -->
             <!-- spring核心框架 -->
-            
+
             <!-- 防止json提示下载 -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -209,7 +211,7 @@
             </dependency>
             <!-- 时间处理工具 -->
 
-            
+
             <!-- log -->
 
             <dependency> <!-- 桥接：告诉Slf4j使用Log4j2 -->
@@ -217,7 +219,7 @@
                 <artifactId>log4j-slf4j-impl</artifactId>
                 <version>${log4j2.version}</version>
             </dependency>
-            
+
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
@@ -241,7 +243,7 @@
                 <artifactId>bcpkix-jdk15on</artifactId>
                 <version>1.54</version>
             </dependency>
-            
+
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-api</artifactId>
@@ -356,7 +358,6 @@
                 <artifactId>jetty-jsp</artifactId>
                 <version>9.3.0.M1</version>
             </dependency>
-
 
 
             <dependency>
