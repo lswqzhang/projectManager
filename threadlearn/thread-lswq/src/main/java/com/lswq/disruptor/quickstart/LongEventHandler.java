@@ -1,4 +1,4 @@
-package com.lswq.disruptor;
+package com.lswq.disruptor.quickstart;
 
 import com.lmax.disruptor.EventHandler;
 
