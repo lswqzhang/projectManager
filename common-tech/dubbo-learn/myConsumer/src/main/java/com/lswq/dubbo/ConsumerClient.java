@@ -13,7 +13,7 @@ public class ConsumerClient {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("consumer.xml");
         HelloService helloService = (HelloService) context.getBean("helloService");
         String result = helloService.speakHello("yyf");
-        System.out.println(result);
+        System.err.println(result);
     }
 
 }
