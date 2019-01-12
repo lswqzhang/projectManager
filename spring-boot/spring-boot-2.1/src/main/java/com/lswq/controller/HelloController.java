@@ -3,11 +3,9 @@ package com.lswq.controller;
 import com.lswq.entity.User;
 import com.lswq.service.UserServiceI;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * rest controller
@@ -21,12 +19,27 @@ public class HelloController {
     @Autowired
     private UserServiceI userServiceI;
 
-    @PostMapping("/hello/{userId}")
+    @GetMapping("/get/{userId}")
     @ResponseBody
-    public Object index(@PathVariable("userId") int userId) {
+    public Object get(@PathVariable("userId") int userId) {
         log.info("search user id is {}", userId);
         User user = userServiceI.selectUserById(userId);
         log.info("search user data is {}", user);
         return user;
     }
+
+
+    @PostMapping("/save")
+    @ResponseBody
+    public Object save(@RequestBody User user) {
+        boolean jdkProxy = AopUtils.isJdkDynamicProxy(userServiceI);
+        boolean cglibProxy = AopUtils.isCglibProxy(userServiceI);
+        log.info("jdk proxy is : {}, cglib proxy is : {}", jdkProxy, cglibProxy);
+        log.info("save user info is {}", user);
+        userServiceI.saveUser(user);
+        log.info("after save user data is {}", user);
+        return user;
+    }
+
+
 }

@@ -9,6 +9,18 @@ import com.lswq.entity.User;
  */
 public interface UserServiceI {
 
+    /**
+     * 查询用户
+     *
+     * @param userId
+     * @return
+     */
     User selectUserById(Integer userId);
 
+    /**
+     * 保存用户信息
+     *
+     * @param user
+     */
+    User saveUser(User user);
 }

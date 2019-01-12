@@ -5,7 +5,7 @@
 
     <cache flushInterval="500" readOnly="true" size="512"/>
     <!--设置model类和数据库中表的字段一一对应，注意数据库字段和model类中的字段名称不致，此处一定要！-->
-    <resultMap id="BaseResultMap" type="com.lswq.entity.User">
+    <resultMap id="baseResultMap" type="com.lswq.entity.User">
         <id column="USER_ID" property="userId" jdbcType="INTEGER"/>
         <result column="USER_NAME" property="userName" jdbcType="CHAR"/>
         <result column="USER_PASSWORD" property="userPassword" jdbcType="CHAR"/>
@@ -13,7 +13,15 @@
 
 
     <!-- 查询单条记录 -->
-    <select id="selectUserById" parameterType="int" resultMap="BaseResultMap" useCache="false" flushCache="true">
-		SELECT * FROM t_user WHERE USER_ID = #{userId}
-	</select>
+    <select id="selectUserById" parameterType="int" resultMap="baseResultMap" useCache="false" flushCache="true">
+        SELECT * FROM t_user WHERE USER_ID = #{userId}
+    </select>
+
+
+    <insert id="saveUserInfo" parameterType="com.lswq.entity.User" useGeneratedKeys="true">
+        <selectKey keyColumn="user_id" keyProperty="userId" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO t_user (USER_NAME, USER_PASSWORD) VALUE (#{userName}, #{userPassword})
+    </insert>
 </mapper>

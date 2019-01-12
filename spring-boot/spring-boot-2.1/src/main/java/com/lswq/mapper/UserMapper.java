@@ -17,4 +17,11 @@ public interface UserMapper {
      */
     User selectUserById(Integer userId);
 
+    /**
+     * 保存用户信息
+     *
+     * @param user
+     * @return
+     */
+    void saveUserInfo(User user);
 }

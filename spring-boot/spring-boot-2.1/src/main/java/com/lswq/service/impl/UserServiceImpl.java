@@ -6,6 +6,8 @@ import com.lswq.service.UserServiceI;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 用户查询处理
@@ -22,5 +24,12 @@ public class UserServiceImpl implements UserServiceI {
     @Override
     public User selectUserById(Integer userId) {
         return userMapper.selectUserById(userId);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED)
+    public User saveUser(User user) {
+        userMapper.saveUserInfo(user);
+        return user;
     }
 }

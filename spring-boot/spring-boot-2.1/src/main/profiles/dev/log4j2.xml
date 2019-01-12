@@ -55,16 +55,24 @@
     </appenders>
     <!--root 默认加载-->
     <loggers>
-        <root level="off">
+        <root level="all">
             <appender-ref ref="Console"/>
         </root>
 
         <logger name="org.springframework" level="info" additivity="false">
             <appender-ref ref="Console"/>
         </logger>
+        
+        <logger name="org.eclipse.jetty" level="info" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
 
         
         <logger name="com.lswq" level="all" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+
+        <logger name="com.lswq.mapper" level="debug" additivity="false">
             <appender-ref ref="Console"/>
         </logger>
 
