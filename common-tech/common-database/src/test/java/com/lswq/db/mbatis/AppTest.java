@@ -29,10 +29,16 @@ public class AppTest extends TestCase {
      * Rigourous Test :-)
      */
     public void testApp() {
+        userMapperInterfaceQueryTest();
         userInterfaceQueryTest();
         userMyBatisSelectTest();
     }
 
+
+    public void userMapperInterfaceQueryTest() {
+        App app = new App();
+        app.userInterfaceMapperQuery();
+    }
 
     public void userInterfaceQueryTest() {
         App app = new App();

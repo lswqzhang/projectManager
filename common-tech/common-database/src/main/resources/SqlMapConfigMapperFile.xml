@@ -11,7 +11,7 @@
             <!-- 数据库连接池，由MyBatis管理-->
             <dataSource type="UNPOOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://192.168.72.130:3306/lswq_test" />
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/lswq_test" />
                 <property name="username" value="root" />
                 <property name="password" value="qian221" />
             </dataSource>

@@ -11,7 +11,7 @@
             <!-- 数据库连接池，由MyBatis管理-->
             <dataSource type="UNPOOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://:3306/lswq_test" />
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/lswq_test" />
                 <property name="username" value="root" />
                 <property name="password" value="qian221" />
             </dataSource>
@@ -34,5 +34,6 @@
         遵循一些规范：需要将mapper接口类名和mapper.xml映射文件名称保持一致，且在一个目录 中
         上边规范的前提是：使用的是mapper代理方法
          -->
+        <package name="com.lswq.db.mybatis.mapper" />
     </mappers>
 </configuration>
