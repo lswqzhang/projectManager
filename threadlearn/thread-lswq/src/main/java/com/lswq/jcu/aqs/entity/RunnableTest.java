@@ -19,7 +19,7 @@ public class RunnableTest implements Runnable {
     private static Integer i = 0;
 
     public RunnableTest(Integer i) {
-        this.i = i;
+        RunnableTest.i = i;
     }
 
     @Override

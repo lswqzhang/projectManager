@@ -54,9 +54,9 @@ public class ModifyParametersFilter extends OncePerRequestFilter {
         @Override
         public String getParameter(String name) {
             String[] results = parameterMap.get(name);
-            if (results == null || results.length <= 0)
+            if (results == null || results.length <= 0) {
                 return null;
-            else {
+            } else {
                 System.out.println("修改之前： " + results[0]);
                 return modify(results[0]);
             }
@@ -69,9 +69,9 @@ public class ModifyParametersFilter extends OncePerRequestFilter {
         @Override
         public String[] getParameterValues(String name) {
             String[] results = parameterMap.get(name);
-            if (results == null || results.length <= 0)
+            if (results == null || results.length <= 0) {
                 return null;
-            else {
+            } else {
                 int length = results.length;
                 for (int i = 0; i < length; i++) {
                     System.out.println("修改之前2： " + results[i]);

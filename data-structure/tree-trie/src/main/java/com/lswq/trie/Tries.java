@@ -162,8 +162,9 @@ public class Tries {
 
     // get the first unvisited child of a node.
     public TrieNode firstChildOf(TrieNode node) {
-        if (node == null)
+        if (node == null) {
             return null;
+        }
         for (int i = 0; i < SIZE; i++) {
             TrieNode tmp = node.son[i];
             if (tmp != null && !tmp.visited) {

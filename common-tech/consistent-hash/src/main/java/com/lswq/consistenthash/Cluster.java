@@ -18,8 +18,9 @@ public class Cluster {
     }
 
     private Server routeServer(int hash) {
-        if (servers.isEmpty())
+        if (servers.isEmpty()) {
             return null;
+        }
 
         if (!servers.containsKey(hash)) {
             SortedMap<Integer, Server> tailMap = servers.tailMap(hash);
@@ -29,8 +30,9 @@ public class Cluster {
     }
 
     public boolean addServer(Server s) {
-        if (size >= SERVER_SIZE_MAX)
+        if (size >= SERVER_SIZE_MAX) {
             return false;
+        }
 
         servers.put(s.hashCode(), s);
 

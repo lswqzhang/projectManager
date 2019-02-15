@@ -21,8 +21,9 @@ public class Main {
                 new Entry("PPAP")
         };
 
-        for (Entry e : entries)
+        for (Entry e : entries) {
             c.put(e);
+        }
 
         c.addServer(new Server("achuguniadsfaang"));
 

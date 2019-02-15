@@ -32,12 +32,13 @@ public class XSSFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         String requestURI = request.getRequestURI();
-        if (StringUtils.isNotBlank(requestURI))
+        if (StringUtils.isNotBlank(requestURI)) {
             requestURI = requestURI.replace(request.getContextPath(), "");
+        }
 
-        if (pattern.matcher(requestURI).matches())
+        if (pattern.matcher(requestURI).matches()) {
             filterChain.doFilter(request, response);
-        else {
+        } else {
             EscapeScriptwrapper escapeScriptwrapper = new EscapeScriptwrapper(request);
             filterChain.doFilter(escapeScriptwrapper, response);
         }
@@ -100,9 +101,9 @@ public class XSSFilter extends OncePerRequestFilter {
         @Override
         public String getParameter(String name) {
             String[] results = parameterMap.get(name);
-            if (results == null || results.length <= 0)
+            if (results == null || results.length <= 0) {
                 return null;
-            else {
+            } else {
                 return escapeXSS(results[0]);
             }
         }
@@ -114,9 +115,9 @@ public class XSSFilter extends OncePerRequestFilter {
         @Override
         public String[] getParameterValues(String name) {
             String[] results = parameterMap.get(name);
-            if (results == null || results.length <= 0)
+            if (results == null || results.length <= 0) {
                 return null;
-            else {
+            } else {
                 int length = results.length;
                 for (int i = 0; i < length; i++) {
                     results[i] = escapeXSS(results[i]);

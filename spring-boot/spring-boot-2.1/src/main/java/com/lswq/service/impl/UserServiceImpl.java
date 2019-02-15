@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserServiceI {
     }
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = RuntimeException.class)
     public User saveUser(User user) {
         userMapper.saveUserInfo(user);
         return user;

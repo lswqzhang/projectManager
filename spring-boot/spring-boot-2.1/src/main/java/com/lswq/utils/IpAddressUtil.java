@@ -1,6 +1,5 @@
 package com.lswq.utils;
 
-import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,7 +12,7 @@ public abstract class IpAddressUtil {
     public static String getIpAddress(HttpServletRequest request) {
         String Xip = request.getHeader("X-Real-IP");
         String XFor = request.getHeader("X-Forwarded-For");
-        if(StringUtils.isNotEmpty(XFor) && !"unKnown".equalsIgnoreCase(XFor)){
+        if(isNotEmpty(XFor) && !"unKnown".equalsIgnoreCase(XFor)){
             //多次反向代理后会有多个ip值，第一个ip才是真实ip
             int index = XFor.indexOf(",");
             if(index != -1){
@@ -23,24 +22,49 @@ public abstract class IpAddressUtil {
             }
         }
         XFor = Xip;
-        if(StringUtils.isNotEmpty(XFor) && !"unKnown".equalsIgnoreCase(XFor)){
+        if(isNotEmpty(XFor) && !"unKnown".equalsIgnoreCase(XFor)){
             return XFor;
         }
-        if (StringUtils.isBlank(XFor) || "unknown".equalsIgnoreCase(XFor)) {
+        if (isBlank(XFor) || "unknown".equalsIgnoreCase(XFor)) {
             XFor = request.getHeader("Proxy-Client-IP");
         }
-        if (StringUtils.isBlank(XFor) || "unknown".equalsIgnoreCase(XFor)) {
+        if (isBlank(XFor) || "unknown".equalsIgnoreCase(XFor)) {
             XFor = request.getHeader("WL-Proxy-Client-IP");
         }
-        if (StringUtils.isBlank(XFor) || "unknown".equalsIgnoreCase(XFor)) {
+        if (isBlank(XFor) || "unknown".equalsIgnoreCase(XFor)) {
             XFor = request.getHeader("HTTP_CLIENT_IP");
         }
-        if (StringUtils.isBlank(XFor) || "unknown".equalsIgnoreCase(XFor)) {
+        if (isBlank(XFor) || "unknown".equalsIgnoreCase(XFor)) {
             XFor = request.getHeader("HTTP_X_FORWARDED_FOR");
         }
-        if (StringUtils.isBlank(XFor) || "unknown".equalsIgnoreCase(XFor)) {
+        if (isBlank(XFor) || "unknown".equalsIgnoreCase(XFor)) {
             XFor = request.getRemoteAddr();
         }
         return XFor;
     }
+
+
+    public static boolean isNotEmpty(final CharSequence cs) {
+        return !isEmpty(cs);
+    }
+
+    public static boolean isEmpty(final CharSequence cs) {
+        return cs == null || cs.length() == 0;
+    }
+
+    public static boolean isBlank(final CharSequence cs) {
+        int strLen;
+        if (cs == null || (strLen = cs.length()) == 0) {
+            return true;
+        }
+        for (int i = 0; i < strLen; i++) {
+            if (Character.isWhitespace(cs.charAt(i)) == false) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
 }
