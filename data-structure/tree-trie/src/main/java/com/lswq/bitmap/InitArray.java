@@ -1,6 +1,5 @@
 package com.lswq.bitmap;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -13,7 +12,7 @@ import java.util.Set;
 public class InitArray {
     public static Integer[] getArray(int nums) {
         int count = 0;
-        Random random = new Random(new Date().getTime());
+        Random random = new Random(System.currentTimeMillis());
         Set<Integer> set = new HashSet<>();
         for (; count < nums; count++) {
             set.add((int) (random.nextFloat() * nums));
