@@ -11,7 +11,12 @@ public class TreeMapDemo {
     @Test
     public void treeMapTest() {
         // creating maps
-        SortedMap<Integer, String> treeMap = new TreeMap<>();
+        SortedMap<Integer, String> treeMap = new TreeMap<>((o1, o2) -> {
+            if (null == o2) {
+                return -1;
+            }
+            return o2.compareTo(o1);
+        });
 
 
         // populating tree map
@@ -26,6 +31,24 @@ public class TreeMapDemo {
         System.out.println("Tail map values: " + treemapincl);
     }
 
+    @Test
+    public void treeMapKeyObj() {
+        SortedMap<TreeMapKey, String> treeMap = new TreeMap<>();
+        treeMap.put(new TreeMapKey(), "First");
+        treeMap.firstKey();
+    }
+
+    @Test
+    public void listLambda() {
+        List<Integer> list = new ArrayList();
+        list.add(2);
+        list.add(4);
+        list.add(2);
+        list.add(6);
+        list.add(3);
+
+        list.stream().distinct().sorted(Comparator.comparing(Integer::intValue).reversed()).forEach((i) -> System.out.println(i));
+    }
 
     @Test
     public void mapTest() {
@@ -71,6 +94,34 @@ public class TreeMapDemo {
         Iterator<Integer> iterator = integerStringConcurrentNavigableMap.keySet().iterator();
         while (iterator.hasNext()) {
             System.err.println(iterator.next());
+        }
+    }
+
+
+    @Test
+    public void sortStackByStack() {
+        
+        Stack<Integer> stackData = new Stack<>();
+        stackData.push(3);
+        stackData.push(7);
+        stackData.push(1);
+        stackData.push(4);
+        stackData.push(8);
+        sortStackByAnother(stackData);
+        stackData.stream().forEach(System.out::println);
+    }
+
+    public void sortStackByAnother(Stack<Integer> stack){
+        Stack<Integer> help = new Stack<>();
+        while (!stack.isEmpty()){
+            int cur = stack.pop();
+            while (!help.isEmpty() && help.peek()<cur){
+                stack.push(help.pop());
+            }
+            help.push(cur);
+        }
+        while (!help.isEmpty()){
+            stack.push(help.pop());
         }
     }
 

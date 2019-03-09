@@ -2,10 +2,15 @@ package com.lswq.controller;
 
 import com.lswq.entity.User;
 import com.lswq.service.UserServiceI;
+import com.lswq.utils.NetworkUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * rest controller
@@ -18,6 +23,23 @@ public class HelloController {
 
     @Autowired
     private UserServiceI userServiceI;
+
+
+    @GetMapping("/hello/{name}")
+    @ResponseBody
+    public Object hello(@PathVariable("name") String name, HttpServletRequest request, HttpServletResponse response) {
+
+        String ipAddress = null;
+        try {
+            ipAddress = NetworkUtil.getIpAddress(request);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        log.info("user name is {}, and the request ip is {}", name, ipAddress);
+        return "hello, " + name + "the ip address is " + ipAddress;
+    }
 
     @GetMapping("/get/{userId}")
     @ResponseBody
