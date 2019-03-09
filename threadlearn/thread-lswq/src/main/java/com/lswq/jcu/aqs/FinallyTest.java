@@ -5,9 +5,9 @@ public class FinallyTest {
 
         FinallyTest finallyTest = new FinallyTest();
 
-        System.err.println("the finally has not return value is " + finallyTest.test());
-        System.out.println("the finally has return is " + finallyTest.testFinallyReturn());
-        System.out.println("has exception return is " + finallyTest.testExceptionReturn());
+        System.err.println("the finally has not return value is " + test());
+        System.out.println("the finally has return is " + testFinallyReturn());
+        System.out.println("has exception return is " + testExceptionReturn());
 
     }
 

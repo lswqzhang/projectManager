@@ -19,6 +19,7 @@ public class ReentrantLockRecursiveLockExample {
     private static class RecursiveLocksRunnable implements Runnable {
         int level = 0;
 
+        @Override
         public void run() {
             try {
                 someMethod();
@@ -53,6 +54,7 @@ public class ReentrantLockRecursiveLockExample {
 
     private static class AcquireLockRunnable implements Runnable {
 
+        @Override
         public void run() {
             print("AcquireLockRunnable", "try lock");
             lock.lock();

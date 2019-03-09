@@ -20,12 +20,16 @@ public class FIFOMutex {
                 !locked.compareAndSet(false, true)) {
             LockSupport.park(this);
             if (Thread.interrupted()) // ignore interrupts while waiting
+            {
                 wasInterrupted = true;
+            }
         }
 
         waiters.remove();
         if (wasInterrupted)          // reassert interrupt status on exit
+        {
             current.interrupt();
+        }
     }
 
     public void unlock() {

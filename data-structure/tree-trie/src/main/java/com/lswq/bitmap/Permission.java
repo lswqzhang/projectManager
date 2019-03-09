@@ -1,19 +1,42 @@
 package com.lswq.bitmap;
 
 public class Permission {
-    // 是否允许查询，二进制第1位，0表示否，1表示是
-    public static final int ALLOW_SELECT = 1 << 0; // 0001
 
-    // 是否允许新增，二进制第2位，0表示否，1表示是
-    public static final int ALLOW_INSERT = 1 << 1; // 0010
+    /**
+     * 是否允许查询，二进制第1位，0表示否，
+     *
+     * 0001
+     */
+    public static final int ALLOW_SELECT = 1 << 0;
 
-    // 是否允许修改，二进制第3位，0表示否，1表示是
-    public static final int ALLOW_UPDATE = 1 << 2; // 0100
+    //
+    /**
+     * 是否允许新增，二进制第2位，0表示否，1表示是
+     *
+     * 0010
+     */
+    public static final int ALLOW_INSERT = 1 << 1;
 
-    // 是否允许删除，二进制第4位，0表示否，1表示是
-    public static final int ALLOW_DELETE = 1 << 3; // 1000
+    /**
+     *
+     * 是否允许修改，二进制第3位，0表示否，1表示是
+     *
+     * 0100
+     */
+    public static final int ALLOW_UPDATE = 1 << 2;
 
-    // 存储目前的权限状态
+    //
+    /**
+     *
+     * 是否允许删除，二进制第4位，0表示否，1表示是
+     *
+     * 1000
+     */
+    public static final int ALLOW_DELETE = 1 << 3;
+
+    /**
+     * 存储目前的权限状态
+     */
     private int flag;
 
     /**
