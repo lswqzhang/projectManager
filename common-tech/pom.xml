@@ -25,6 +25,7 @@
         <module>jedis-learn</module>
         <module>kafka-learn</module>
         <module>dubbo-learn</module>
-    <module>common-database</module>
-  </modules>
+        <module>common-database</module>
+        <module>common-poi</module>
+    </modules>
 </project>

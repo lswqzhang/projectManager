@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -27,16 +26,13 @@ public class HelloController {
 
     @GetMapping("/hello/{name}")
     @ResponseBody
-    public Object hello(@PathVariable("name") String name, HttpServletRequest request, HttpServletResponse response) {
-
+    public Object hello(@PathVariable("name") String name, HttpServletRequest request) {
         String ipAddress = null;
         try {
             ipAddress = NetworkUtil.getIpAddress(request);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("get the ip error, and the request ip is {}", e);
         }
-
-
         log.info("user name is {}, and the request ip is {}", name, ipAddress);
         return "hello, " + name + "the ip address is " + ipAddress;
     }

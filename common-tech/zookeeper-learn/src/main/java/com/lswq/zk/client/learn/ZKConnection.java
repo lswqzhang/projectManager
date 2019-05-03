@@ -8,7 +8,7 @@ public class ZKConnection {
     /**
      * server列表, 以逗号分割
      */
-    protected String hosts = "192.168.15.220:2181,192.168.15.221:2181,192.168.15.222:2181";
+    protected String hosts = "192.168.15.190:2181";
     /**
      * 连接的超时时间, 毫秒
      */
